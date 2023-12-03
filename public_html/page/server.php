@@ -2,6 +2,22 @@
 
     session_start();
 
+    #|-----------------
+    #| Custom logs | Inspired from:  https://www.tutorialrepublic.com/php-tutorial/php-error-handling.php
+    #|
+    ini_set('error_log', '../../logs/my_logs.log');
+    error_reporting(E_ALL);
+    $seq_num = 0;
+
+    error_log("======= START ============== ");
+
+    function add_log($message) {
+        global $seq_num;
+        $seq_num ++ ;
+        error_log("| " . $seq_num . " :" . $message);
+    }
+
+    
     # $db = new SQLite3('../sqlite/dummybase.db');
 
     $config = parse_ini_file("../../my_config.ini", true);

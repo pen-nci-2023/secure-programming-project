@@ -1,0 +1,16 @@
+[03-Dec-2023 16:38:33 Europe/Berlin] PHP Warning:  Undefined variable $seq_num in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 13
+[03-Dec-2023 16:38:33 Europe/Berlin] | 1 : db_path = ../../sqlite/dummybase.db
+[03-Dec-2023 16:38:35 Europe/Berlin] PHP Warning:  Undefined variable $seq_num in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 13
+[03-Dec-2023 16:38:35 Europe/Berlin] | 1 : db_path = ../../sqlite/dummybase.db
+[03-Dec-2023 16:42:12 Europe/Berlin] PHP Warning:  Undefined variable $seq_num in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 13
+[03-Dec-2023 16:42:12 Europe/Berlin] | 1 : db_path = ../../sqlite/dummybase.db
+[03-Dec-2023 16:48:41 Europe/Berlin] | 1 : db_path = ../../sqlite/dummybase.db
+[03-Dec-2023 16:52:27 Europe/Berlin] | 1 : db_path = ../../sqlite/dummybase.db
+[03-Dec-2023 16:52:31 Europe/Berlin] | 1 : db_path = ../../sqlite/dummybase.db
+[03-Dec-2023 16:54:24 Europe/Berlin] | 1 : db_path = ../../sqlite/dummybase.db
+[03-Dec-2023 16:54:24 Europe/Berlin] | 2 : salute
+[03-Dec-2023 16:54:26 Europe/Berlin] | 1 : db_path = ../../sqlite/dummybase.db
+[03-Dec-2023 16:54:26 Europe/Berlin] | 2 : salute
+[03-Dec-2023 16:56:56 Europe/Berlin] ======= START ============== 
+[03-Dec-2023 16:56:56 Europe/Berlin] | 1 : db_path = ../../sqlite/dummybase.db
+[03-Dec-2023 16:56:56 Europe/Berlin] | 2 : salute
