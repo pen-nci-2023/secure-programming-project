@@ -2,7 +2,6 @@
 
     session_start();
 
-
     # $db = new SQLite3('../sqlite/dummybase.db');
 
     $config = parse_ini_file("../../my_config.ini", true);
@@ -15,8 +14,10 @@
     //--
     */
 
+    #|-------------------------------
+    #| DATABASE CONNECTION 
+    #|
     $db_path = '../../sqlite/dummybase.db';
-
 
     if($enable_db_connection_test == "true"){
 
@@ -45,4 +46,33 @@
     }
 
  
+    #|-------------------------------
+    #| REGISTER USER
+    #|
+    if (isset($_POST['reg_user']))
+    {
+        //|-  receive all input values from the form 
+        //|
+        $username = mysqli_real_escape_string($db, $_POST['username']);
+        $email = mysqli_real_escape_string($db, $_POST['email']);
+        $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
+        $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 
+
+        //|- form validation: ensure that the form is correctly filled | #Security_layer
+        //|
+        if (empty($username)) { array_push($errors, "Username is required"); }
+        if (empty($email)) { array_push($errors, "Email is required"); }
+        if (empty($password_1)) { array_push($errors, "Password is required"); }
+        if ($password_1 != $password_2) {
+            array_push($errors, "The two passwords do not match");
+        }
+
+        //---------------------
+        //|- Querying the database if user already exist
+        //|
+
+
+
+        //-----
+    }
