@@ -1,3 +1,5 @@
+<?php include('server.php') ?>
+
 <head>
     <title>Dummy shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
