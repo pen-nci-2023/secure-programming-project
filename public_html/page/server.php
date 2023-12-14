@@ -91,9 +91,9 @@
         // creating new db connection
         $db = new SQLite3($db_path);
 
-        $stmt = $db->prepare('SELECT * FROM users WHERE username = :username OR email = :email LIMIT 1');  
-        $stmt->bindValue(':username', $username, SQLITE3_TEXT); // <-- stmt->bindValue -- Security | #security_layer | ensures that user input is treated as data and not as part of the SQL command.
-        $stmt->bindValue(':email', $email, SQLITE3_TEXT); // ^
+        $stmt = $db->prepare('SELECT * FROM users WHERE username = :username OR email = :email LIMIT 1');
+        $stmt->bindValue(':username', $username, SQLITE3_TEXT);
+        $stmt->bindValue(':email', $email, SQLITE3_TEXT);
         $result = $stmt->execute();
 
         $uservar = $result->fetchArray(SQLITE3_ASSOC);
