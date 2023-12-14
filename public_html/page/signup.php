@@ -32,8 +32,6 @@
                 <!-- my code -->
                 <form action="signup.php" method="post"> <!-- updated-->
                     <input class="text" type="text" name="username" placeholder="Username" required=""></br>
-                    <input class="text" type="text" name="fname" placeholder="First Name" required="">
-                    <input class="text" type="text" name="lname" placeholder="Last Name" required="">
                     <input class="text email" type="email" name="email" placeholder="Email" required="">
                     
                     </br>

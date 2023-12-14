@@ -14,3 +14,55 @@
 [03-Dec-2023 16:56:56 Europe/Berlin] ======= START ============== 
 [03-Dec-2023 16:56:56 Europe/Berlin] | 1 : db_path = ../../sqlite/dummybase.db
 [03-Dec-2023 16:56:56 Europe/Berlin] | 2 : salute
+[03-Dec-2023 21:50:10 Europe/Berlin] ======= START ============== 
+[04-Dec-2023 04:58:16 Europe/Berlin] ======= START ============== 
+[04-Dec-2023 04:58:24 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 21:18:17 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 21:18:26 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 21:23:46 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 21:23:59 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 21:23:59 Europe/Berlin] PHP Warning:  Undefined variable $db in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 72
+[07-Dec-2023 21:23:59 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php:72
+Stack trace:
+#0 C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php(72): mysqli_real_escape_string(NULL, 'jdoe')
+#1 C:\xampp\htdocs\secure_web_app_dev\public_html\page\signup.php(1): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 72
+[07-Dec-2023 21:36:34 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 21:37:24 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 21:55:31 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 21:59:05 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 21:59:16 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 21:59:16 Europe/Berlin] PHP Warning:  Undefined variable $username in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 88
+[07-Dec-2023 21:59:16 Europe/Berlin] PHP Warning:  Undefined variable $db in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 89
+[07-Dec-2023 21:59:16 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php:89
+Stack trace:
+#0 C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php(89): mysqli_query(NULL, 'SELECT * FROM u...')
+#1 C:\xampp\htdocs\secure_web_app_dev\public_html\page\signup.php(1): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 89
+[07-Dec-2023 22:32:46 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 22:33:25 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 22:33:25 Europe/Berlin] PHP Warning:  Undefined variable $db in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 88
+[07-Dec-2023 22:33:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php:88
+Stack trace:
+#0 C:\xampp\htdocs\secure_web_app_dev\public_html\page\signup.php(1): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 88
+[07-Dec-2023 22:35:46 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 22:35:56 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 22:36:11 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 22:36:11 Europe/Berlin] PHP Warning:  SQLite3::prepare(): Unable to prepare statement: 1, no such table: user in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 94
+[07-Dec-2023 22:36:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bindValue() on bool in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php:95
+Stack trace:
+#0 C:\xampp\htdocs\secure_web_app_dev\public_html\page\signup.php(1): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 95
+[07-Dec-2023 22:39:22 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 22:39:32 Europe/Berlin] ======= START ============== 
+[07-Dec-2023 22:39:32 Europe/Berlin] PHP Warning:  SQLite3::prepare(): Unable to prepare statement: 1, table users has no column named fname in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 113
+[07-Dec-2023 22:39:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bindValue() on bool in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php:114
+Stack trace:
+#0 C:\xampp\htdocs\secure_web_app_dev\public_html\page\signup.php(1): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\secure_web_app_dev\public_html\page\server.php on line 114
