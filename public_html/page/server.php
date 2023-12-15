@@ -2,7 +2,22 @@
 
     session_start();
 
+    #|-----------------
+    #| Custom logs | Inspired from:  https://www.tutorialrepublic.com/php-tutorial/php-error-handling.php
+    #|
+    ini_set('error_log', '../../logs/my_logs.log');
+    error_reporting(E_ALL);
+    $seq_num = 0;
 
+    error_log("======= START ============== ");
+
+    function add_log($message) {
+        global $seq_num;
+        $seq_num ++ ;
+        error_log("| " . $seq_num . " :" . $message."\n");
+    }
+
+    
     # $db = new SQLite3('../sqlite/dummybase.db');
 
     $config = parse_ini_file("../../my_config.ini", true);
@@ -15,8 +30,10 @@
     //--
     */
 
+    #|-------------------------------
+    #| DATABASE CONNECTION 
+    #|
     $db_path = '../../sqlite/dummybase.db';
-
 
     if($enable_db_connection_test == "true"){
 
@@ -40,9 +57,67 @@
             // Catch and display any errors in connection or querying
             echo "Error: " . $e->getMessage();
         }
-    }else{
-
     }
 
  
+    #|-------------------------------
+    #| REGISTER USER
+    #|
+    if (isset($_POST['reg_user']))
+    {
+        //|-  receive all input values from the form 
+        //|
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password_1 = $_POST['password_1'];
+        $password_2 = $_POST['password_2'];
 
+        //|- form validation: ensure that the form is correctly filled | #Security_Feature
+        //|
+        $errors = [];
+        if (empty($username)) { array_push($errors, "Username is required"); }
+        if (empty($email)) { array_push($errors, "Email is required"); }
+        if (empty($password_1)) { array_push($errors, "Password is required"); }
+        if ($password_1 != $password_2) {
+            array_push($errors, "The two passwords do not match");
+        }
+
+    
+
+        //---------------------
+        //|- Querying the database if user already exist
+        //| Vulnerable SQL query | Insecure
+        //|
+
+        $user_check_query = "SELECT * FROM users WHERE username = '$username' OR email = '$email' LIMIT 1";
+        $result = $db->query($user_check_query);
+
+        $uservar = $result->fetchArray(SQLITE3_ASSOC);
+        if ($uservar) {
+            if ($uservar['username'] === $username) {
+                array_push($errors, "Username already exists");
+            }
+            if ($uservar['email'] === $email) {
+                array_push($errors, "Email already exists");
+            }
+        }
+
+           // Register user if there are no errors
+        if (count($errors) == 0) {
+            $password = password_hash($password_1, PASSWORD_DEFAULT); // <-- Encrypt the password | #Security_Feature
+
+            // Vulnerable SQL query for insertion
+            $insert_query = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+            $db->query($insert_query);
+            $stmt->execute();
+
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = "You are now logged in";
+            header('location: user.php');
+        }
+
+        // Close the database connection
+        $db->close();
+       
+    }
+?>
