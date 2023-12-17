@@ -18,8 +18,8 @@
     }
 
     
-    # $db = new SQLite3('../sqlite/dummybase.db');
-
+    #| $db = new SQLite3('../sqlite/dummybase.db');
+    #|
     $config = parse_ini_file("../../my_config.ini", true);
     $enable_db_connection_test = $config['General_Settings']['enable_database_connection_test'];
 
@@ -72,17 +72,9 @@
         $password_1 = $_POST['password_1'];
         $password_2 = $_POST['password_2'];
 
-        //|- form validation: ensure that the form is correctly filled | #Security_Feature
+        //|- Vulnaribility: form validation removed 
         //|
-        $errors = [];
-        if (empty($username)) { array_push($errors, "Username is required"); }
-        if (empty($email)) { array_push($errors, "Email is required"); }
-        if (empty($password_1)) { array_push($errors, "Password is required"); }
-        if ($password_1 != $password_2) {
-            array_push($errors, "The two passwords do not match");
-        }
-
-    
+       
 
         //---------------------
         //|- Querying the database if user already exist
@@ -104,20 +96,19 @@
 
            // Register user if there are no errors
         if (count($errors) == 0) {
-            $password = password_hash($password_1, PASSWORD_DEFAULT); // <-- Encrypt the password | #Security_Feature
+            $password = $password_1 ; // <-- Vulnaribility :  Password not incrypted
 
             // Vulnerable SQL query for insertion
             $insert_query = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
             $db->query($insert_query);
-            $stmt->execute();
-
+          
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
             header('location: user.php');
         }
 
-        // Close the database connection
-        $db->close();
+        // ulnaribility: Database connection remains open
+  
        
     }
 ?>
